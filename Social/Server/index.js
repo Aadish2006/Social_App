@@ -7,7 +7,7 @@ import ConnectDB from './congfig/db.js';
 const app = express();
 const PORT = 8000;
 ConnectDB();
-
+app.use(express.json());
 app.get('/', (req, res) => {
     res.send("Hello from Express Server")
 })
