@@ -44,4 +44,13 @@ we have to
 * const salt = await bcrypt.genSalt(10)
 * const hashedPassword = await bcrypt.hash(password,salt);
 * await User.create({name,email,password: hashedPassword,username})
+* for checking const isPasswordCorrect = await bcrypt.compare(password,existingUser.password) 
+* # here bcrypt.compare(password,existingUser.hashedPassword)  this will return true or false
   
+# lec2 
+* Login and Logout API
+* Whata is JWT
+* Cookies
+* Auth Middlware
+* Setting up frontend with signup and signin pages
+

@@ -23,6 +23,24 @@ export const SignUp = async(req,res)=>{
    console.log(salt)
    const hashedPassword = await bcrypt.hash(password,salt);
 
-   await User.create({name,email,password: hashedPassword,username})
-   res.status(201).json({message:"User created successfully"})
+   const newUser = await User.create({name,email,password: hashedPassword,username})
+   res.status(201).json(newUser)
+}
+
+export const signIn = async (req,res)=>{
+    const {password,username} = req.body 
+
+    if(!password||!username){
+        return res.status(400).json({message:"Please fill all the fields"})
+    }
+    const existingUser = await User.findOne({username})
+    if(!existingUser){
+        return res.status(400).json({message:"User does not exist"})
+    }
+    
+    const  isPasswordCorrect = await bcrypt.compare(password,existingUser.password)
+    if(!isPasswordCorrect){
+        return res.status(400).json({message:"Incorrect Password"})
+    }
+    res.status(200).json({message:"User signed in successfully",user:existingUser})
 }
