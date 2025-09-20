@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon index.js" 
-
+    "dev": "npx nodemon index.js"
   },
   "author": "",
-  "type":"module",
+  "type": "module",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "mongodb": "^6.20.0",

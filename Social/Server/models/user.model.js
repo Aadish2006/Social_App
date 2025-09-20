@@ -3,22 +3,22 @@ import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: True,
+    required: true,
   },
-  Username: {
+  username: {
     type: String,
-    required: True,
-    unique: True,
+    required: true,
+    unique: true,
   },
   email: {
     type: String,
-    required: True,
-    unique: True,
+    required: true,
+    unique: true,
     // this will ASSUre we have unique emails every time.
   },
   password: {
     type: String,
-    required: True,
+    required: true,
   },
   ProfilePic:{
     type:String,
@@ -35,6 +35,6 @@ const UserSchema = new mongoose.Schema({
   stories:[]
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", UserSchema);
 
 export default User;

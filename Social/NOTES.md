@@ -1,6 +1,6 @@
 *  we have to add the 
 "type":"module" in the json file se we can use import features just like react 
-without it we can use import and has to use require.
+without it we cannot use import and has to use require.
 
 *  we can cahnge the scripts in json 
 as like in json under scripts we added "dev": "npx nodemon index.js"
@@ -27,3 +27,21 @@ dotenv.config();
    + we will also create auth.controller.js in which we will have sinup sign in login etc
    * * WE WILL HAVE TO WRITE 
     app.use(express.json) which will unable us to use the json file whererever we want to.
+
+  2)   now we have to create Routes for authentication so we have to create routes for signup signin login etc
+   + so we
+  ```
+  import express from 'express'
+  const authRouter  = express.router()
+  ```
+
+## Hashhing Passwords
+we use bcrypt to hash the passwords so that no one can see the password
+we have to
+* import bcrypt from 'bcryptjs'
+* npm install bcryptjs
+
+* const salt = await bcrypt.genSalt(10)
+* const hashedPassword = await bcrypt.hash(password,salt);
+* await User.create({name,email,password: hashedPassword,username})
+  
